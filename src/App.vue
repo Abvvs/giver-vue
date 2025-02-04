@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import Introduction from './views/IntroductionView.vue'
 import NavigationArrows from './components/navigationArrows.vue';
 </script>
