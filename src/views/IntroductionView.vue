@@ -1,7 +1,7 @@
 <template>
     <Background>
         <FlamesAnimation />
-        <TextWriter :text="introText" :speed="100" />
+        <TextWriter :text="introText" :speed="100" :isDark="false" />
     </Background>
 </template>
 

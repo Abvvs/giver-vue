@@ -1,5 +1,5 @@
 <template>
-    <div class="text-writer">
+    <div class="text-writer" :class="{ 'dark-text': isDark }">
         <span class="text">{{ displayedText }}</span>
         <span class="cursor">|</span>
     </div>
@@ -15,7 +15,11 @@ export default {
         },
         speed: {
             type: Number,
-            default: 100, // Velocidad en milisegundos
+            default: 100,
+        },
+        isDark: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -44,23 +48,14 @@ export default {
     font-family: 'Courier New', monospace;
     font-size: 1.5rem;
     color: #fff;
+    /* Color por defecto (para fondos oscuros) */
     text-align: center;
     margin-top: 20vh;
+    z-index: 3;
 }
 
-.cursor {
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
+.text-writer.dark-text {
+    color: #000;
+    /* Color para fondos claros */
 }
 </style>

@@ -6,8 +6,8 @@ import NavigationArrows from './components/navigationArrows.vue';
 <template>
   <div id="app">
     <Introduction />
-    <NavigationArrows />
     <router-view></router-view>
+    <NavigationArrows />
   </div>
 </template>
 

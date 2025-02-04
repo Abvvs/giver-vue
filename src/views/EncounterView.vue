@@ -1,7 +1,7 @@
 <template>
     <Background :isDark="false">
         <lightParticles />
-        <TextWriter :text="encounterText" :speed="80" />
+        <TextWriter :text="encounterText" :speed="80" :isDark="false" />
     </Background>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="navigation-arrows">
-        <button @click="goBack" :disabled="isFirstPage" class="arrow left">←</button>
-        <button @click="goNext" :disabled="isLastPage" class="arrow right">→</button>
-    </div>
+  <div class="navigation-arrows">
+    <button @click="goBack" :disabled="isFirstPage" class="arrow left">←</button>
+    <button @click="goNext" :disabled="isLastPage" class="arrow right">→</button>
+  </div>
 </template>
 <script>
 export default {
@@ -42,6 +42,7 @@ export default {
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
+  z-index: 1000;
 }
 
 .arrow {
