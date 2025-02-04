@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import Background from '../components/Introduction/background.vue';
-import FlamesAnimation from '../components/Introduction/flamesAnimation.vue';
-import TextWriter from '../components/Introduction/textWriter.vue';
+import Background from '../components/background.vue';
+import FlamesAnimation from '../components/flamesAnimation.vue';
+import TextWriter from '../components/textWriter.vue';
 
 export default {
     name: 'Introduction',
