@@ -1,17 +1,27 @@
 <template>
-    
+  <Background :isDark="false">
+    <HeartFlame />
+    <TextWriter :text="climaxText" :speed="80" :isDark="false"/>
+  </Background>
 </template>
 
 <script>
-import Background from '../components/background.vue';
-import FlamesAnimation from '../components/flamesAnimation.vue';
-import TextWriter from '../components/textWriter.vue';
+import Background from "../components/background.vue";
+import TextWriter from "../components/textWriter.vue";
+import HeartFlame from "../components/heartFlame.vue";
 
 export default {
-    name: 'Encounter',
-    components: {
-    },
-    data() {
-    },
+  name: "Climax",
+  components: {
+    Background,
+    TextWriter,
+    HeartFlame,
+  },
+  data() {
+    return {
+      climaxText:
+        "En un momento de claridad, el corazón de Kael latió con fuerza. Las llamas de su ser se transformaron en una flor, símbolo de su redención...",
+    };
+  },
 };
 </script>

@@ -1,62 +1,92 @@
 <template>
-    <div class="light-particles">
-      <div v-for="(particle, index) in particles" :key="index" class="particle" :style="particle.style"></div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'LightParticles',
-    data() {
-      return {
-        particles: [],
-      };
+  <div class="light-container">
+    <div
+      v-for="(light, index) in lights"
+      :key="index"
+      class="light"
+      :style="light.style"
+    ></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "LightParticles",
+  data() {
+    return {
+      lights: [], // Array para almacenar las luces
+    };
+  },
+  mounted() {
+    this.createLights();
+  },
+  methods: {
+    createLights() {
+      const numberOfLights = 20; // Número de luces que deseas crear
+      for (let i = 0; i < numberOfLights; i++) {
+        const size = Math.random() * 200 + 50; // Tamaño aleatorio entre 50px y 150px
+        const blur = Math.random() * 50 + 20; // Blur aleatorio entre 20px y 70px
+        const opacity = Math.random() * 0.5 + 0.3; // Opacidad aleatoria entre 0.3 y 0.8
+        const duration = Math.random() * 3 + 2; // Duración de la animación entre 2s y 5s
+
+        this.lights.push({
+          style: {
+            top: `${Math.random() * 100}%`, // Posición vertical aleatoria
+            left: `${Math.random() * 100}%`, // Posición horizontal aleatoria
+            width: `${size}px`,
+            height: `${size}px`,
+            opacity: "0", // Comienza con opacidad 0
+            filter: `blur(${blur}px)`, 
+            animationDuration: `${duration}s`, // Duración de la animación
+          },
+        });
+      }
+
+      // Iniciar la animación después de un pequeño delay
+      setTimeout(() => {
+        this.lights.forEach((light) => {
+          light.style.opacity = opacity; // Aplicar opacidad final
+          light.style.transition = `all ${duration}s ease-out`; // Transición suave
+        });
+      }, 100);
     },
-    created() {
-      this.createParticles();
-    },
-    methods: {
-      createParticles() {
-        for (let i = 0; i < 30; i++) {
-          this.particles.push({
-            style: {
-              top: `${Math.random() * 100}vh`,
-              left: `${Math.random() * 100}vw`,
-              animationDuration: `${Math.random() * 5 + 3}s`,
-              opacity: Math.random(),
-            },
-          });
-        }
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .light-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  },
+};
+</script>
+
+<style scoped>
+.light-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.light {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: grow ease-in-out infinite;
+}
+
+@keyframes grow {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
   }
-  
-  .particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    animation: float linear infinite;
+  50% {
+    opacity: 1;
   }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100vh);
-    }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
   }
-  </style>
+}
+</style>
