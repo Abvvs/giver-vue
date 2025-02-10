@@ -12,19 +12,19 @@ export default {
       return this.$route.path === '/';
     },
     isLastPage() {
-      return this.$route.path === '/final';
+      return this.$route.path === '/valentine';
     },
   },
   methods: {
     goBack() {
-      const routes = ['/', '/encounter', '/conflict', '/climax', '/final'];
+      const routes = ['/', '/encounter', '/conflict', '/climax', '/final', '/valentine'];
       const currentIndex = routes.indexOf(this.$route.path);
       if (currentIndex > 0) {
         this.$router.push(routes[currentIndex - 1]);
       }
     },
     goNext() {
-      const routes = ['/', '/encounter', '/conflict', '/climax', '/final'];
+      const routes = ['/', '/encounter', '/conflict', '/climax', '/final', '/valentine'];
       const currentIndex = routes.indexOf(this.$route.path);
       if (currentIndex < routes.length - 1) {
         this.$router.push(routes[currentIndex + 1]);

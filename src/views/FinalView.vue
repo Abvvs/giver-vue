@@ -1,5 +1,6 @@
 <template>
     <Background :isDark="false">
+      <LightDarkAnimation />
       <TextWriter :text="finalText" :speed="80" :isDark="false"/>
     </Background>
   </template>
@@ -7,10 +8,12 @@
   <script>
   import Background from '../components/background.vue';
   import TextWriter from '../components/textWriter.vue';
+  import LightDarkAnimation from '../components/lightDarkAnimation.vue';
   
   export default {
     name: 'Final',
     components: {
+      LightDarkAnimation,
       Background,
       TextWriter,
     },

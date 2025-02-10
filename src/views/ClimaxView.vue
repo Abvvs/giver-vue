@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       climaxText:
-        "En un momento de claridad, el corazón de Kael latió con fuerza. Las llamas de su ser se transformaron en una flor, símbolo de su redención...",
+        "En un momento de claridad, el corazón de Kael latió con fuerza. Las llamas de su ser se transformaron en símbolo de su redención...",
     };
   },
 };
