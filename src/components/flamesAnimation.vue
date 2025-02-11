@@ -17,7 +17,7 @@
     },
     methods: {
       createFlames() {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 5; i++) {
           this.flames.push({
             style: {
               left: `${Math.random() * 100}%`, // Posición horizontal aleatoria
