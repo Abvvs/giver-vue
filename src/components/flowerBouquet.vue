@@ -17,13 +17,13 @@ export default {
     },
     methods: {
         createTulips() {
-            const tulipCount = 20; // Número de tulipanes
+            const tulipCount = 10; // Reducir el número de tulipanes para móviles
             for (let i = 0; i < tulipCount; i++) {
-                const size = Math.random() * 50 + 30; // Tamaño aleatorio entre 30px y 80px
-                const x = Math.random() * window.innerWidth; // Posición horizontal aleatoria
-                const y = Math.random() * window.innerHeight; // Posición vertical aleatoria
-                const duration = Math.random() * 4 + 3; // Duración de la animación entre 3s y 7s
-                const delay = Math.random() * 2; // Retraso inicial aleatorio
+                const size = Math.random() * 40 + 20; // Tamaño más pequeño
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const duration = Math.random() * 4 + 3;
+                const delay = Math.random() * 2;
 
                 this.tulips.push({
                     style: {
@@ -43,13 +43,14 @@ export default {
 
 <style scoped>
 .flower-bouquet {
-    position: fixed; /* Cambiado a fixed para cubrir toda la pantalla */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 3; /* Asegúrate de que esté por encima del fondo pero debajo del texto */
+    z-index: 1;
+    pointer-events: none; /* Evita que las flores interfieran con interacciones */
 }
 
 .tulip {
@@ -57,6 +58,7 @@ export default {
     background: url('https://pngimg.com/uploads/tulip/tulip_PNG8986.png') no-repeat center center;
     background-size: contain;
     animation: float ease-in-out infinite;
+    will-change: transform; /* Optimiza la animación */
 }
 
 @keyframes float {
@@ -64,7 +66,14 @@ export default {
         transform: translateY(0) translateX(0);
     }
     50% {
-        transform: translateY(-20px) translateX(20px);
+        transform: translateY(-10px) translateX(10px); /* Movimiento más suave */
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .tulip {
+        animation-duration: 6s; /* Animación más lenta para móviles */
     }
 }
 </style>
